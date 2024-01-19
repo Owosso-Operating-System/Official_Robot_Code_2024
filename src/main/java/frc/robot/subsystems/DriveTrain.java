@@ -59,22 +59,7 @@ public final static Pigeon2 gyro = new Pigeon2(5);
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  //Outputs the Yaw value onto the driver station
-  //With a value between 0 and 360
-  public static void updateYaw(){
-   double value = gyro.getYaw().getValueAsDouble();
-    if(value > 360){
-      value = value % 360;
-    }
-    else if(value < 0 && value > -360){
-      value = value + 360;
-    }
-    else if(value < 0 && value < -360){
-      value = (value % 360) + 360;
-    }
 
-    SmartDashboard.putNumber("Gyro Yaw", value);
-  }
   //Outputs the Pitch value onto the driver station
   //With a value between 0 and 360
   public static void updatePitch(){

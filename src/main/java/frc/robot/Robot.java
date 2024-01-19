@@ -54,7 +54,6 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
     //updates the limelight Table
     LimeLight.updateTable();
-    DriveTrain.updateYaw();
     DriveTrain.updatePitch();
   }
 
@@ -82,7 +81,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    DriveTrain.updateYaw();
     DriveTrain.updatePitch();
   }
 

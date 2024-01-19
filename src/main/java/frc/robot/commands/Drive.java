@@ -49,12 +49,6 @@ public class Drive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  //Left Stick 0 left/right  1 up/down    Right Stick  4 left/right
-    /*if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
-      driveTrain.mecDrive.driveCartesian(controller.getRawAxis(1)*0.6, -controller.getRawAxis(0)*0.6, -controller.getRawAxis(4)*0.6);
-    }else{
-      driveTrain.mecDrive.driveCartesian(0, 0, 0);
-    }*/
     if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
       if(controller.getRightBumper() == true){
         driveTrain.mecDrive.driveCartesian(controller.getRawAxis(1)*0.4, -controller.getRawAxis(0)*0.4, -controller.getRawAxis(4)*0.4);
@@ -64,7 +58,6 @@ public class Drive extends Command {
     }else{
       driveTrain.mecDrive.driveCartesian(0, 0, 0);
     }
-    //driveTrain.mecDrive.driveCartesian(controller.getRawAxis(1)/3, -controller.getRawAxis(0)/3, -controller.getRawAxis(4)/3);
   }
 
   // Called once the command ends or is interrupted.
