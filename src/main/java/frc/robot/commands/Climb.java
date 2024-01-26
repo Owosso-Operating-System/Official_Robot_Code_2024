@@ -12,8 +12,8 @@ public class Climb extends Command {
   //makes a variable to use in the class
   private final ClimbSubsystem climbSubsystem;
   private final XboxController controller;
-  /*Method: Drive
-   * Parameters: None
+  /*Method: Climb
+   * Parameters: climbSubsystem, XboxController
    * Variables used: climbSubsystem and controller
    * What it does: Takes the controller outputs, passes the values to mecDrive
    **/

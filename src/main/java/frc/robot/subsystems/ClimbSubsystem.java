@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /** Class: ClimbSubsystem
    * Creates a new ClimbSubsystem.
-   *
    *  */
 public class ClimbSubsystem extends SubsystemBase {
   // creates a new CAN Motor object
