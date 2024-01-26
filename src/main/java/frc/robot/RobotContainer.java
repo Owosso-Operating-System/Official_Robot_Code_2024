@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
+import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.DriveTrain;
 
 /**
@@ -22,6 +24,8 @@ public class RobotContainer {
 
   //Create new driveTrain Object
   private final DriveTrain driveTrain;
+  //Create new ClimbSubsystem Object
+  private final ClimbSubsystem climbSubsystem;
   //Create new controller Object
   private final XboxController controller0;
 
@@ -31,11 +35,15 @@ public class RobotContainer {
 
     // add in new driveTrain
     driveTrain = new DriveTrain();
+    // add in new climbSubsystem
+    climbSubsystem = new ClimbSubsystem();
     // add in new controller
     controller0 = new XboxController(0);
 
     // set Defualt Command for driveTrain passing in the driveTrain and controller0
     driveTrain.setDefaultCommand(new Drive(driveTrain, controller0));
+    // set Defualt Command for climbSubsystem passing in the climbSubsystem and controller0
+    climbSubsystem.setDefaultCommand(new Climb(climbSubsystem, controller0));
     // Configure the button bindings  
     configureButtonBindings();
   }
