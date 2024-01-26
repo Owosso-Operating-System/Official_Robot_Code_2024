@@ -13,7 +13,7 @@ public class Climb extends Command {
   private final ClimbSubsystem climbSubsystem;
   private final XboxController controller;
   /*Method: Climb
-   * Parameters: climbSubsystem, XboxController
+   * Parameters: ClimbSubsystem, XboxController
    * Variables used: climbSubsystem and controller
    * What it does: Takes the controller outputs, passes the values to mecDrive
    **/
