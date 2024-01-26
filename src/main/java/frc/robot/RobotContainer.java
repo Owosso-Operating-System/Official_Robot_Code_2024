@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Drive;
+import frc.robot.commands.Intake;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.IntakeSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,6 +24,8 @@ public class RobotContainer {
 
   //Create new driveTrain Object
   private final DriveTrain driveTrain;
+  // Create new intakeSubsystem Object
+  private final IntakeSubsystem intakeSubsystem;
   //Create new controller Object
   private final XboxController controller0;
 
@@ -31,17 +35,22 @@ public class RobotContainer {
 
     // add in new driveTrain
     driveTrain = new DriveTrain();
+    // add in new intakeSubsystem
+    intakeSubsystem = new IntakeSubsystem();
     // add in new controller
     controller0 = new XboxController(0);
 
     // set Defualt Command for driveTrain passing in the driveTrain and controller0
     driveTrain.setDefaultCommand(new Drive(driveTrain, controller0));
+    // set Default Command for intakeSubysystem passing in the intakeSubsystem and controller0
+    intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller0));
     // Configure the button bindings  
     configureButtonBindings();
   }
 
   private void configureButtonBindings() {
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Drive(driveTrain, controller0));
+    new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
   }
 
    /**Method: GetAutonomousCommand
