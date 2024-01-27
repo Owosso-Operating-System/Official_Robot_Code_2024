@@ -25,7 +25,7 @@ public class Handoff extends Command {
    *  */
 
   public Handoff(HandoffSubsystem handoffSubsystem, XboxController controller) {
-    this.handoffSubsystem= handoffSubsystem;
+    this.handoffSubsystem = handoffSubsystem;
     this.controller = controller;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(handoffSubsystem);
