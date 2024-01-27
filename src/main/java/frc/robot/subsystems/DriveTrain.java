@@ -40,7 +40,7 @@ public final static Pigeon2 gyro = new Pigeon2(5);
 
  // initalize the CAN Motors
  lF = new CANSparkMax(1,MotorType.kBrushless);
- lB = new CANSparkMax(6,MotorType.kBrushless);
+ lB = new CANSparkMax(3,MotorType.kBrushless);
  rF = new CANSparkMax(2,MotorType.kBrushless);
  rB = new CANSparkMax(4,MotorType.kBrushless);
 

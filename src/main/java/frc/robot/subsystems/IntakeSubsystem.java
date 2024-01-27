@@ -20,7 +20,7 @@ public static CANSparkMax intake;
 
   public IntakeSubsystem() {
     //initalize the CAN motor
-    intake = new CANSparkMax(3, MotorType.kBrushless);
+    intake = new CANSparkMax(6, MotorType.kBrushless);
     //inverts the motor
     intake.setInverted(true);
   }
