@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.BasicAuton;
+import frc.robot.commands.DefaultAuton;
 import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
@@ -78,7 +78,7 @@ public class RobotContainer {
     switch(autoName){
       //cases go here
       case "Default":
-      return new BasicAuton(driveTrain);
+        return new DefaultAuton(driveTrain);
     }
     return null;
   }

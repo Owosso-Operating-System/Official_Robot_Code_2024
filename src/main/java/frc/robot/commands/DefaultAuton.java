@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveTrain;
 
-public class BasicAuton extends Command {
-  /** Creates a new BasicAuton. */
+public class DefaultAuton extends Command {
+  /** Creates a new DefaultAuton. */
   //Makes a variable named driveTrain
   private DriveTrain driveTrain;
-  public BasicAuton(DriveTrain driveTrain) {
+  public DefaultAuton(DriveTrain driveTrain) {
     this.driveTrain = driveTrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
