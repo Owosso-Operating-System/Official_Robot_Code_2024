@@ -45,10 +45,11 @@ public class Intake extends Command {
   @Override
   public void execute() {
     // While B is held, the intake speed is 1, otherwise is 0
-    while(controller.getBButtonPressed() == true){
+    if(controller.getBButton() == true){
       intakeSubsystem.intake.set(1);
+    }else if(controller.getBButton() == false){
+      intakeSubsystem.intake.set(0);
     }
-    intakeSubsystem.intake.set(0);
   }
 
   // Called once the command ends or is interrupted.
