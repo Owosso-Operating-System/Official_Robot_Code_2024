@@ -50,7 +50,7 @@ public class RobotContainer {
     driveTrain.setDefaultCommand(new Drive(driveTrain, controller0));
     // set Defualt Command for climbSubsystem passing in the climbSubsystem and controller0
     climbSubsystem.setDefaultCommand(new Climb(climbSubsystem, controller0));
-    // set Default Command for intakeSubysystem passing in the intakeSubsystem and controller0
+    // set Default Command for intakeSubsystem passing in the intakeSubsystem and controller0
     intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller0));
     // Configure the button bindings  
     configureButtonBindings();
@@ -59,6 +59,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Drive(driveTrain, controller0));
     new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
   }
 
    /**Method: GetAutonomousCommand

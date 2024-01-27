@@ -40,16 +40,16 @@ public class Intake extends Command {
    * Variables used: intakeSubsystem.intake and controller
    * What it does: Takes the controller outputs, passes the values to intake
    *  */
-
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // While B is held, the intake speed is 1, otherwise is 0
-    if(controller.getBButton() == true){
+    // While A is held, the intake speed is 1, otherwise it is 0
+    if(controller.getAButton() == true){
       intakeSubsystem.intake.set(1);
-    }else if(controller.getBButton() == false){
+    }else if (controller.getBButton() == true){
+      intakeSubsystem.intake.set(-1);
+    }else{
       intakeSubsystem.intake.set(0);
-    }
+    }// While B is held, the intake speed is -1, otherwise it is 0
   }
 
   // Called once the command ends or is interrupted.
