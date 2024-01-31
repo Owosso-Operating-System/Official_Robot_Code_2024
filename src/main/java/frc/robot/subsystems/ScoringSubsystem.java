@@ -9,20 +9,19 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-/**Method: HandoffSubsystem
+/**Method: ScoringSubsystem
    * Parameters: None
-   * Variables used: handoff
-   * What it does: Assigns the handoff variables its output port
+   * Variables used: scorer
+   * What it does: Assigns the scorer variable its output port
    *  */
-public class HandoffSubsystem extends SubsystemBase {
-  /** Creates a new HandoffSubsystem. */
-public static CANSparkMax handoff;
+public class ScoringSubsystem extends SubsystemBase {
+  public static CANSparkMax scorer;
 
-  public HandoffSubsystem() {
-    //initalize the CAN motor
-    handoff = new CANSparkMax(8, MotorType.kBrushless);
+  /** Creates a new ScoringSubsystem. */
+  public ScoringSubsystem() {
+    //initialize the CAN motor
+    scorer = new CANSparkMax(9, MotorType.kBrushless);
   }
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

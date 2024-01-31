@@ -23,7 +23,7 @@ public class ClimbSubsystem extends SubsystemBase {
    *  */
   public ClimbSubsystem() {
     // initalize the CAN Motors
-    climb = new CANSparkMax(9,MotorType.kBrushless);
+    climb = new CANSparkMax(10,MotorType.kBrushless);
   }
 
   @Override
