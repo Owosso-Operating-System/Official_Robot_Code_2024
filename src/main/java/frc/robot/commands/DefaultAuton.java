@@ -35,32 +35,45 @@ public class DefaultAuton extends Command {
     //Runs isFinished
     isFinished();
     */
+    //Moves the robot left at half speed for 2 seconds
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2);
+    //Stops the robot and sets the scorer to full speed for .1 second
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     scoringSubsystem.scorer.set(1);
     Timer.delay(.1);
+    //Stops the scorer and moves the robot back at 1/10 speed for .2 seconds
     scoringSubsystem.scorer.set(0);
     driveTrain.mecDrive.driveCartesian(-.1, 0, 0);
     Timer.delay(.2);
+    //Stops the robot moving back and rotates left for .3 seconds
     driveTrain.mecDrive.driveCartesian(0, 0, -.5);
     Timer.delay(.3);
+    //Stops the robot moves the pivot down for .3 seconds
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     pivotSubsystem.pivot.set(.5);
     Timer.delay(.3);
+    //Sets the scorer speed to -1 for .1 seconds to pick up a note
     scoringSubsystem.scorer.set(-1);
     Timer.delay(.1);
+    //Stops the scorer and rotates right for .3 seconds
     scoringSubsystem.scorer.set(0);
     driveTrain.mecDrive.driveCartesian(0, 0, .5);
     Timer.delay(.3);
+    //Moves foreward at a 1/10 of teh speed for .2 seconds
     driveTrain.mecDrive.driveCartesian(.1, 0, 0);
     Timer.delay(.2);
+    //Stops the robot and sets the scorer to speed to 1 for .1 second
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     scoringSubsystem.scorer.set(1);
     Timer.delay(.1);
+    //Stops the scorer and moves the robot left for 2.784 seconds
     scoringSubsystem.scorer.set(0);
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2.784);
+    //Stops the robot
+    driveTrain.mecDrive.driveCartesian(0, 0, 0);
+    //Runs isFinished 
     isFinished();
 
   }
