@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    *  */
 public class IntakeSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
-public static CANSparkMax intake;
-public static CANSparkMax drop;
+  public static CANSparkMax intake;
+  public static CANSparkMax drop;
 
   public IntakeSubsystem() {
     //initalize the CAN motor
