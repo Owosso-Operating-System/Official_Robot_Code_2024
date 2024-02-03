@@ -13,9 +13,11 @@ import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
+import frc.robot.commands.Pivot;
 import frc.robot.commands.Scoring;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.PivotSubsystem;
 import frc.robot.subsystems.ScoringSubsystem;
 
 /**
@@ -35,8 +37,11 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem;
   //Create new scoringSubsystem Object
   private final ScoringSubsystem scoringSubsystem;
+  //Create new PivotSubsystem Object
+  private final PivotSubsystem pivotSubsystem;
   //Create new controller Object
   private final XboxController controller0;
+  private final XboxController controller1;
 
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -50,17 +55,22 @@ public class RobotContainer {
     intakeSubsystem = new IntakeSubsystem();
     // add in new scoringSubsystem
     scoringSubsystem = new ScoringSubsystem();
-    // add in new controller
+    // add in new pivotSubsystem
+    pivotSubsystem = new PivotSubsystem();
+    // add in new controllers
     controller0 = new XboxController(0);
+    controller1 = new XboxController(1);
 
-    // set Defualt Command for driveTrain passing in the driveTrain and controller0
+    // set Default Command for driveTrain passing in the driveTrain and controller0
     driveTrain.setDefaultCommand(new Drive(driveTrain, controller0));
-    // set Defualt Command for climbSubsystem passing in the climbSubsystem and controller0
+    // set Default Command for climbSubsystem passing in the climbSubsystem and controller0
     climbSubsystem.setDefaultCommand(new Climb(climbSubsystem, controller0));
     // set Default Command for intakeSubsystem passing in the intakeSubsystem and controller0
     intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller0));
     // set Default Command for scoringSubsystem passing in the scoringSubsystem and controller0
     scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller0));
+    // set Default Command for pivotSubsystem passing in the pivotSubsystem and the controller1
+    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller1));
     // Configure the button bindings  
     configureButtonBindings();
   }
