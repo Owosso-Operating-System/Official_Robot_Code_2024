@@ -42,9 +42,12 @@ public class Pivot extends Command {
    *  */
   @Override
   public void execute() {
-    //IDK, fill in later
+    //Adjust if Limit Switches are used
+    //Uses up and down of right stick on controller 2 to set speed of pivot arm
     if(controller.getRawAxis(5) > 0.2 || controller.getRawAxis(5) < -0.2){
       pivotSubsystem.pivot.set(controller.getRawAxis(5)*.25);
+    }else{
+      pivotSubsystem.pivot.set(0);
     }
   }
 
