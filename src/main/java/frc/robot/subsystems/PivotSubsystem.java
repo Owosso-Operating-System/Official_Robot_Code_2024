@@ -9,18 +9,18 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-/**Method: HandoffSubsystem
+/**Method: PivotSubsystem
    * Parameters: None
-   * Variables used: handoff
-   * What it does: Assigns the handoff variables its output port
+   * Variables used: Pivot
+   * What it does: Assigns the Pivot variables its output port
    *  */
-public class HandoffSubsystem extends SubsystemBase {
-  /** Creates a new HandoffSubsystem. */
-public static CANSparkMax handoff;
+public class PivotSubsystem extends SubsystemBase {
+  /** Creates a new PivotSubsystem. */
+  public CANSparkMax pivot;
 
-  public HandoffSubsystem() {
+  public PivotSubsystem() {
     //initalize the CAN motor
-    handoff = new CANSparkMax(8, MotorType.kBrushless);
+    pivot = new CANSparkMax(8, MotorType.kBrushless);
   }
 
   @Override

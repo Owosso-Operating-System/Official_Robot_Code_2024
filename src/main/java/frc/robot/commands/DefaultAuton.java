@@ -13,11 +13,11 @@ public class DefaultAuton extends Command {
   //Makes a variable named driveTrain
   private DriveTrain driveTrain;
   private ScoringSubsystem scoringSubsystem;
-  private HandoffSubsystem handoffSubsystem;
-  public DefaultAuton(DriveTrain driveTrain, ScoringSubsystem scoringSubsystem, HandoffSubsystem handoffSubsystem) {
+  private PivotSubsystem pivotSubsystem;
+  public DefaultAuton(DriveTrain driveTrain, ScoringSubsystem scoringSubsystem, PivotSubsystem pivotSubsystem) {
     this.driveTrain = driveTrain;
     this.scoringSubsystem = scoringSubsystem;
-    this.handoffSubsystem = handoffSubsystem;
+    this.pivotSubsystem = pivotSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
   }
@@ -46,7 +46,7 @@ public class DefaultAuton extends Command {
     driveTrain.mecDrive.driveCartesian(0, 0, -.5);
     Timer.delay(.3);
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
-    handoffSubsystem.handoff.set(.5);
+    pivotSubsystem.pivot.set(.5);
     Timer.delay(.3);
     scoringSubsystem.scorer.set(-1);
     Timer.delay(.1);
