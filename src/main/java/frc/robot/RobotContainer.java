@@ -98,7 +98,7 @@ public class RobotContainer {
     switch(autoName){
       //cases go here
       case "Default":
-        return new DefaultAuton(driveTrain);
+        return new DefaultAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
     }
     return null;
   }
