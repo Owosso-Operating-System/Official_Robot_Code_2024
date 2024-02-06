@@ -23,7 +23,7 @@ public class DefaultAuton extends Command {
     this.scoringSubsystem = scoringSubsystem;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(driveTrain);
+    addRequirements(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
   }
 
   // Called when the command is initially scheduled.
