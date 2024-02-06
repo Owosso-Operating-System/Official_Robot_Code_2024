@@ -12,12 +12,16 @@ public class DefaultAuton extends Command {
   /** Creates a new DefaultAuton. */
   //Makes a variable named driveTrain
   private DriveTrain driveTrain;
-  private ScoringSubsystem scoringSubsystem;
+  private IntakeSubsystem intakeSubsystem;
   private PivotSubsystem pivotSubsystem;
-  public DefaultAuton(DriveTrain driveTrain, ScoringSubsystem scoringSubsystem, PivotSubsystem pivotSubsystem) {
+  private ScoringSubsystem scoringSubsystem;
+
+  public DefaultAuton(DriveTrain driveTrain,IntakeSubsystem intakeSubsystem, PivotSubsystem pivotSubsystem, ScoringSubsystem scoringSubsystem) {
     this.driveTrain = driveTrain;
-    this.scoringSubsystem = scoringSubsystem;
+    this.intakeSubsystem = intakeSubsystem;
     this.pivotSubsystem = pivotSubsystem;
+    this.scoringSubsystem = scoringSubsystem;
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
   }
@@ -35,6 +39,7 @@ public class DefaultAuton extends Command {
     //Runs isFinished
     isFinished();
     */
+
     //Moves the robot left at half speed for 2 seconds
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2);
@@ -53,11 +58,11 @@ public class DefaultAuton extends Command {
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     pivotSubsystem.pivot.set(.5);
     Timer.delay(.3);
-    //Sets the scorer speed to -1 for .1 seconds to pick up a note
-    scoringSubsystem.scorer.set(-1);
+    //Sets the intake speed to -1 for .1 seconds to pick up a note
+    intakeSubsystem.intake.set(1);
     Timer.delay(.1);
-    //Stops the scorer and rotates right for .3 seconds
-    scoringSubsystem.scorer.set(0);
+    //Stops the intake and rotates right for .3 seconds
+    intakeSubsystem.intake.set(0);
     driveTrain.mecDrive.driveCartesian(0, 0, .5);
     Timer.delay(.3);
     //Moves foreward at a 1/10 of teh speed for .2 seconds
