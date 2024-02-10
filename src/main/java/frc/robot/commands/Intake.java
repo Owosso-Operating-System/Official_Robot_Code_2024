@@ -50,12 +50,6 @@ public class Intake extends Command {
     }else{
       intakeSubsystem.intake.set(0);
     }
-    // While X is held, the system will be dropped
-    if(controller.getXButton() == true){
-      intakeSubsystem.drop.set(-1);
-    }else{
-      intakeSubsystem.drop.set(0);
-    }
   }
 
   // Called once the command ends or is interrupted.

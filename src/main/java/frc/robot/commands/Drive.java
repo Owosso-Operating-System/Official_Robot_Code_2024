@@ -21,6 +21,12 @@ public class Drive extends Command {
   // Creates new XboxController Object
   public final XboxController controller;
 
+  //Speed Limit 
+  static final double LIMIT = 0.4;
+
+  //Controller DeadZone 
+  static final double DEADZONE = 0.1;
+
   /**Method: Drive
    * Parameters: DriveTrain and XboxController
    * Variables used: driveTrain and controller
@@ -32,6 +38,7 @@ public class Drive extends Command {
   public Drive(DriveTrain driveTrain, XboxController controller) {
     this.driveTrain = driveTrain;
     this.controller = controller;
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(this.driveTrain);
   }
@@ -49,8 +56,8 @@ public class Drive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
-      driveTrain.mecDrive.driveCartesian(controller.getRawAxis(1)*0.75, controller.getRawAxis(0)*0.75, controller.getRawAxis(4)*0.75);
+    if(controller.getRawAxis(1) > DEADZONE || controller.getRawAxis(0) > DEADZONE || controller.getRawAxis(4) > DEADZONE || controller.getRawAxis(0) < -DEADZONE || controller.getRawAxis(1) < -DEADZONE || controller.getRawAxis(4) < -DEADZONE){
+      driveTrain.mecDrive.driveCartesian(controller.getRawAxis(1)*LIMIT, -controller.getRawAxis(0)*LIMIT, -controller.getRawAxis(4)*LIMIT);
     }else{
       driveTrain.mecDrive.driveCartesian(0, 0, 0);
     }

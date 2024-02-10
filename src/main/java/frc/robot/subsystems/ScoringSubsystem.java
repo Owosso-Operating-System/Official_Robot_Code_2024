@@ -20,7 +20,7 @@ public class ScoringSubsystem extends SubsystemBase {
   /** Creates a new ScoringSubsystem. */
   public ScoringSubsystem() {
     //initialize the CAN motor
-    scorer = new CANSparkMax(9, MotorType.kBrushless);
+    scorer = new CANSparkMax(8, MotorType.kBrushless);
   }
   @Override
   public void periodic() {
