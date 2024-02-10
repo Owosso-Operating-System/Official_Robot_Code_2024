@@ -13,6 +13,7 @@ import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
+import frc.robot.commands.LineUp;
 import frc.robot.commands.Scoring;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -68,7 +69,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
     new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain, controller0));
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
     new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
   }

@@ -16,6 +16,7 @@ public class LimeLight {
         static NetworkTableEntry ty = table.getEntry("ty");
         static NetworkTableEntry ta = table.getEntry("ta");
         
+        
         static double x;
         static double y;
         static double area;
