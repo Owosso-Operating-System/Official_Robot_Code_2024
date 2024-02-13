@@ -17,6 +17,7 @@ public class LimeLight {
         static double ty = table.getEntry("ty").getDouble(0);
         static double ta = table.getEntry("ta").getDouble(0);  
         
+        
         static double x;
         static double y;
         static double area;
