@@ -3,6 +3,9 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
+import edu.wpi.first.apriltag.AprilTagDetection;
+import edu.wpi.first.apriltag.AprilTagDetector;
+import edu.wpi.first.apriltag.jni.AprilTagJNI;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -40,13 +43,15 @@ public class Robot extends TimedRobot {
    *               Puts gyro on the dashbord.
    *  */
   
-      //makes a new robotcontainer
+    //makes a new robotcontainer
     m_robotContainer = new RobotContainer();
     //updates table
     LimeLight.updateTable();
-        // Creates and sets up the camera 
+    // Creates and sets up the camera 
     CameraServer.startAutomaticCapture();
-        
+
+
+    
   }
 
   @Override

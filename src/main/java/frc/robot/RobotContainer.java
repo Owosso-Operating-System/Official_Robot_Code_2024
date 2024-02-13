@@ -13,6 +13,7 @@ import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
+import frc.robot.commands.LineUp;
 import frc.robot.commands.Pivot;
 import frc.robot.commands.Scoring;
 import frc.robot.subsystems.DriveTrain;
@@ -39,6 +40,8 @@ public class RobotContainer {
   private final ScoringSubsystem scoringSubsystem;
   //Create new PivotSubsystem Object
   private final PivotSubsystem pivotSubsystem;
+
+  private final LineUp lineUp;
   //Create new controller Object
   private final XboxController controller0;
   private final XboxController controller1;
@@ -57,6 +60,8 @@ public class RobotContainer {
     scoringSubsystem = new ScoringSubsystem();
     // add in new pivotSubsystem
     pivotSubsystem = new PivotSubsystem();
+
+    lineUp = new LineUp(driveTrain);
     // add in new controllers
     controller0 = new XboxController(0);
     controller1 = new XboxController(1);
@@ -81,6 +86,8 @@ public class RobotContainer {
     new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new Intake(intakeSubsystem, controller0));
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
     new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
+
+    new JoystickButton(controller0, XboxController.Button.kY.value).whileTrue(new LineUp(driveTrain));
   }
 
    /**Method: GetAutonomousCommand
