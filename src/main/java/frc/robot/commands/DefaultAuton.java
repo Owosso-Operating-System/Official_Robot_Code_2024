@@ -29,6 +29,8 @@ public class DefaultAuton extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    //Sets the safety to false
+    driveTrain.mecDrive.setSafetyEnabled(false);
     /* 
     //Set the driveTrain speed to -0.2
     driveTrain.mecDrive.driveCartesian(-.2, 0, 0);

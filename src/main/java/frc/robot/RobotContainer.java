@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DefaultAuton;
 import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
+import frc.robot.commands.GyroAuton;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
 import frc.robot.commands.Pivot;
@@ -99,6 +100,9 @@ public class RobotContainer {
       //cases go here
       case "Default":
         return new DefaultAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
+
+      case "Gyro":
+        return new GyroAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
     }
     return null;
   }

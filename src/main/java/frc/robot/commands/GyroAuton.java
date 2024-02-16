@@ -21,13 +21,11 @@ public class GyroAuton extends Command {
   private PIDTurn pidTurn;
   private Pigeon2 gyro;
 
-  public GyroAuton(DriveTrain driveTrain,IntakeSubsystem intakeSubsystem, PivotSubsystem pivotSubsystem, ScoringSubsystem scoringSubsystem, PIDTurn pidTurn, Pigeon2 gyro) {
+  public GyroAuton(DriveTrain driveTrain,IntakeSubsystem intakeSubsystem, PivotSubsystem pivotSubsystem, ScoringSubsystem scoringSubsystem) {
     this.driveTrain = driveTrain;
     this.intakeSubsystem = intakeSubsystem;
     this.pivotSubsystem = pivotSubsystem;
     this.scoringSubsystem = scoringSubsystem;
-    this.pidTurn = pidTurn;
-    this.gyro = gyro;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
@@ -36,6 +34,8 @@ public class GyroAuton extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    //Sets the safety to false
+    driveTrain.mecDrive.setSafetyEnabled(false);
     /* 
     //Set the driveTrain speed to -0.2
     driveTrain.mecDrive.driveCartesian(-.2, 0, 0);
@@ -58,12 +58,14 @@ public class GyroAuton extends Command {
     scoringSubsystem.scorer.set(0);
     driveTrain.mecDrive.driveCartesian(-.1, 0, PIDTurn.getSpeed(driveTrain, 0));
     Timer.delay(.2);
-    //Stops the robot moving back and rotates left for .3 seconds
-    if(Pigeon2.getYaw >= -90)
+    //Stops the robot moving back, and rotates left for .3 seconds
+    while(gyro.getYaw().getValueAsDouble() > -90.0){
+      driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -90));
+      break;
+    }
+    //Timer.delay(.3);
+    //Stops the robot, moves the pivot down for .3 seconds
     driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -90));
-    Timer.delay(.3);
-    //Stops the robot moves the pivot down for .3 seconds
-    driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, 0));
     pivotSubsystem.pivot.set(.5);
     Timer.delay(.3);
     //Sets the intake speed to -1 for .1 seconds to pick up a note
@@ -71,9 +73,11 @@ public class GyroAuton extends Command {
     Timer.delay(.1);
     //Stops the intake and rotates right for .3 seconds
     intakeSubsystem.intake.set(0);
-    driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, 0));
-    Timer.delay(.3);
-    //Moves foreward at a 1/10 of teh speed for .2 seconds
+    while(gyro.getYaw().getValueAsDouble() < 0.0){
+      driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, 0));
+    }
+    //Timer.delay(.3);
+    //Moves foreward at a 1/10 of the speed for .2 seconds
     driveTrain.mecDrive.driveCartesian(.1, 0, PIDTurn.getSpeed(driveTrain, 0));
     Timer.delay(.2);
     //Stops the robot and sets the scorer to speed to 1 for .1 second
