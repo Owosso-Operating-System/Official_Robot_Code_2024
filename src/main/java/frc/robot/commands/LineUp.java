@@ -4,9 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.LimeLight;
 import frc.robot.subsystems.DriveTrain;
@@ -16,13 +13,9 @@ public class LineUp extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   //Creates new DriveTrain Object named driveTrain
   public final DriveTrain driveTrain;
-  public final XboxController controller;
-  NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-  double tx = table.getEntry("tx").getDouble(0.0);
 
-  public LineUp(DriveTrain driveTrain, XboxController controller) {
+  public LineUp(DriveTrain driveTrain) {
     this.driveTrain = driveTrain;
-    this.controller = controller;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(this.driveTrain);
   }
@@ -39,20 +32,11 @@ public class LineUp extends Command {
   @Override
   public void execute() {
     //detects reflective materials from the limelight
-    double headingError = -tx;
-    double steeringAdjust = 0.0;
-
-    if(table.getValue("tid").getDouble() == 15 || table.getValue("tid").getDouble() == 6){
-        if (Math.abs(headingError) > 1.0) {
-          if (headingError < 0) {
-            steeringAdjust = 0.00375 * headingError + 0.01;
-          } else {
-            steeringAdjust = 0.00375 * headingError - 0.05;
-          }
-        }
-        driveTrain.mecDrive.driveCartesian(0, steeringAdjust, 0);
-    }else{
-      driveTrain.mecDrive.driveCartesian(0, 0, 0);
+    if(LimeLight.getX() > 1){
+      driveTrain.mecDrive.driveCartesian(0, -.2, 0);
+    }
+    if(LimeLight.getX() < -1){
+      driveTrain.mecDrive.driveCartesian(0, .2, 0);
     }
   }
 
