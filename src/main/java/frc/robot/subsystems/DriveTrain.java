@@ -44,14 +44,10 @@ public final static Pigeon2 gyro = new Pigeon2(5);
  rF = new CANSparkMax(2,MotorType.kBrushless);
  rB = new CANSparkMax(4,MotorType.kBrushless);
 
- 
+ rF.setInverted(true);
+ rB.setInverted(true);
 
- // invert left side Motor
- lF.setInverted(true);
- lB.setInverted(true);
-
-
- // use CAN Motors in new MechanumDrive 
+ // use CAN Motors in new MechanumDrive
  mecDrive = new MecanumDrive(lF, lB, rF, rB);
   }
 
