@@ -3,7 +3,11 @@
     "type": "java",
     "name": "frcJava",
     "port": 8349,
+<<<<<<< HEAD
     "target": "10.52.60.2",
+=======
+    "target": "172.22.11.2",
+>>>>>>> b849157eea9de1a06707387334f918c6eb327372
     "project": "Official_Robot_Code_2024"
   }
 ]
