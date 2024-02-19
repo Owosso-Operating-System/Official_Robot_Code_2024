@@ -1,7 +1,6 @@
 package frc.robot;
 
 import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -11,14 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
    *  */
 
 public class LimeLight {
-        static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-        static NetworkTableEntry tx = table.getEntry("tx");
-        static NetworkTableEntry ty = table.getEntry("ty");
-        static NetworkTableEntry ta = table.getEntry("ta");
-        
-        static double x;
-        static double y;
-        static double area;
+    
+        static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight-owosso");
+        static double tx = table.getEntry("tx").getDouble(0);
+        static double ty = table.getEntry("ty").getDouble(0);
+        static double ta = table.getEntry("ta").getDouble(0);
 
     /**Method: updateTable
    * Parameters: N/A
@@ -28,25 +24,25 @@ public class LimeLight {
   
     public static void updateTable(){
         //read values periodically
-        x = tx.getDouble(0.0);
-        y = ty.getDouble(0.0);
-        area = ta.getDouble(0.0);
+        tx = table.getEntry("tx").getDouble(0);
+        ty = table.getEntry("ty").getDouble(0);
+        ta = table.getEntry("ta").getDouble(0);
         
         //post to smart dashboard periodically
-        SmartDashboard.putNumber("LimelightX", x);
-        SmartDashboard.putNumber("LimelightY", y);
-        SmartDashboard.putNumber("LimelightArea", area);
+        SmartDashboard.putNumber("LimelightX", tx);
+        SmartDashboard.putNumber("LimelightY", ty);
+        SmartDashboard.putNumber("LimelightArea", ta);
     }
 
     public static double getX(){
-        return x;
+        return tx;
     }
 
     public static double getY(){
-        return y;
+        return ty;
     }
 
     public static double getArea(){
-        return area;
+        return ta;
     }
 }

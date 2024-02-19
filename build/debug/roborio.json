@@ -1,9 +1,0 @@
-[
-  {
-    "type": "java",
-    "name": "frcJava",
-    "port": 8349,
-    "target": "roborio-5260-FRC.local",
-    "project": "Official_Robot_Code_2024-1"
-  }
-]

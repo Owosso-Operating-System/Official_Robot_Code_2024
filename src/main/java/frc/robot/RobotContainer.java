@@ -13,7 +13,8 @@ import frc.robot.commands.Climb;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
-import frc.robot.commands.Pivot;
+import frc.robot.commands.LineUp;
+import frc.robot.commands.Pivot; 
 import frc.robot.commands.Scoring;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -39,7 +40,7 @@ public class RobotContainer {
   private final ScoringSubsystem scoringSubsystem;
   //Create new PivotSubsystem Object
   private final PivotSubsystem pivotSubsystem;
-  //Create new controller Object
+
   private final XboxController controller0;
   private final XboxController controller1;
 
@@ -57,6 +58,7 @@ public class RobotContainer {
     scoringSubsystem = new ScoringSubsystem();
     // add in new pivotSubsystem
     pivotSubsystem = new PivotSubsystem();
+
     // add in new controllers
     controller0 = new XboxController(0);
     controller1 = new XboxController(1);
@@ -78,7 +80,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
     new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain,controller0));
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
     new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
   }

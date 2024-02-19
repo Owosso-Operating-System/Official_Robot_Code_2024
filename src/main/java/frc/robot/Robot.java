@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
    *               Puts gyro on the dashbord.
    *  */
   
-      //makes a new robotcontainer
+    //makes a new robotcontainer
     m_robotContainer = new RobotContainer();
     //updates table
     LimeLight.updateTable();
@@ -77,6 +77,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
+    LimeLight.updateTable();
     DriveTrain.updatePitch();
   }
 
@@ -90,7 +91,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    LimeLight.updateTable();
+  }
 
   @Override
   public void testInit() {
