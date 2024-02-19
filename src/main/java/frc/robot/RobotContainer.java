@@ -80,7 +80,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
     new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain, controller0));
+    new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain));
     new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
     new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
   }
