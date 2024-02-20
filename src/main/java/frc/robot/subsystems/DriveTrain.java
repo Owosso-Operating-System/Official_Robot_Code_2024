@@ -49,6 +49,8 @@ public final static Pigeon2 gyro = new Pigeon2(5);
  // invert left side Motor
  lF.setInverted(true);
  lB.setInverted(true);
+ lB.follow(rF);
+ lF.follow(rF);
 
 
  // use CAN Motors in new MechanumDrive 
