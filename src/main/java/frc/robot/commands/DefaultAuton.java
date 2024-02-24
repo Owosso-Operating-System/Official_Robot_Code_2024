@@ -29,12 +29,13 @@ public class DefaultAuton extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    //Safety is disabled
     driveTrain.mecDrive.setSafetyEnabled(false);
     /*
     //Set the driveTrain speed to -0.2
     driveTrain.mecDrive.driveCartesian(-.2, 0, 0);
     //Waits for 5 seconds
-    Timer.delay(50);
+    Timer.delay(5);
     //Stops the robot 
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     //Runs isFinished
