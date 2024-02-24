@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class DriveTrain extends SubsystemBase {
 
 // create new CAN Motor objects
-public final CANSparkMax lF;
-public final CANSparkMax lB;
-public final CANSparkMax rF;
-public final CANSparkMax rB;
+private final CANSparkMax lF;
+private final CANSparkMax lB;
+private final CANSparkMax rF;
+private final CANSparkMax rB;
 // create new Mechanum Drive variable named mecDrive
 public final MecanumDrive mecDrive;
 
