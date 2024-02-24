@@ -51,11 +51,6 @@ public class Drive extends Command {
   public void execute() {
     if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
       driveTrain.mecDrive.driveCartesian(-controller.getRawAxis(1)*0.75, controller.getRawAxis(0)*0.75, controller.getRawAxis(4)*0.75);
-    }else if(controller.getLeftTriggerAxis() > 0.1){
-      driveTrain.lB.set(.1);
-      //driveTrain.lF.set(.1); Works, Not Inverted
-      //driveTrain.rB.set(.1); Works
-      //driveTrain.rF.set(.1);//Works
     }else{
       driveTrain.mecDrive.driveCartesian(0, 0, 0);
     }
