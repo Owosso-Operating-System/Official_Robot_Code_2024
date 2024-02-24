@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class DriveTrain extends SubsystemBase {
 
 // create new CAN Motor objects
-private final CANSparkMax lF;
-private final CANSparkMax lB;
-private final CANSparkMax rF;
-private final CANSparkMax rB;
+public final CANSparkMax lF;
+public final CANSparkMax lB;
+public final CANSparkMax rF;
+public final CANSparkMax rB;
 // create new Mechanum Drive variable named mecDrive
 public final MecanumDrive mecDrive;
 
@@ -39,22 +39,20 @@ public final static Pigeon2 gyro = new Pigeon2(5);
   public DriveTrain() {
 
  // initalize the CAN Motors
- lF = new CANSparkMax(1,MotorType.kBrushless);
- lB = new CANSparkMax(3,MotorType.kBrushless);
- rF = new CANSparkMax(2,MotorType.kBrushless);
- rB = new CANSparkMax(4,MotorType.kBrushless);
+    lF = new CANSparkMax(1,MotorType.kBrushless);
+    lB = new CANSparkMax(3,MotorType.kBrushless);
+    rF = new CANSparkMax(2,MotorType.kBrushless);
+    rB = new CANSparkMax(4,MotorType.kBrushless);
 
- 
+    
 
- // invert left side Motor
- lF.setInverted(true);
- lB.setInverted(true);
- lB.follow(rF);
- lF.follow(rF);
+    // invert left side Motor
+    //lF.setInverted(true);
+    //lB.setInverted(true);
 
 
- // use CAN Motors in new MechanumDrive 
- mecDrive = new MecanumDrive(lF, lB, rF, rB);
+    // use CAN Motors in new MechanumDrive 
+    mecDrive = new MecanumDrive(lF, lB, rF, rB);
   }
 
   @Override
