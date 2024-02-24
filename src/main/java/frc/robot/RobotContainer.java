@@ -72,7 +72,7 @@ public class RobotContainer {
     // set Default Command for scoringSubsystem passing in the scoringSubsystem and controller0
     scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller0));
     // set Default Command for pivotSubsystem passing in the pivotSubsystem and the controller1
-    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller1));
+    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller0));
     // Configure the button bindings  
     configureButtonBindings();
   }
