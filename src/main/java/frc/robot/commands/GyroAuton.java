@@ -34,6 +34,7 @@ public class GyroAuton extends Command {
   @Override
   public void initialize() {
     driveTrain.mecDrive.setSafetyEnabled(false);
+    driveTrain.gyro.setYaw(0);
     /* 
     //Set the driveTrain speed to -0.2
     driveTrain.mecDrive.driveCartesian(-.2, 0, 0);
@@ -57,9 +58,7 @@ public class GyroAuton extends Command {
     driveTrain.mecDrive.driveCartesian(-.1, 0, PIDTurn.getSpeed(driveTrain, 0));
     Timer.delay(.2);
     //Stops the robot moving back and rotates left for .3 seconds
-    while(driveTrain.gyro.getYaw().getValue() >= -87.5){
-      driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -88));
-    }
+    driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -88));
     Timer.delay(.3);
     //Stops the robot moves the pivot down for .3 seconds
     driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -88));
@@ -70,9 +69,7 @@ public class GyroAuton extends Command {
     Timer.delay(.1);
     //Stops the intake and rotates right for .3 seconds
     intakeSubsystem.intake.set(0);
-    while(driveTrain.gyro.getYaw().getValue() >= -2.5){
-      driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -2));
-    }
+    driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -2));
     Timer.delay(.3);
     //Moves foreward at a 1/10 of teh speed for .2 seconds
     driveTrain.mecDrive.driveCartesian(.1, 0, PIDTurn.getSpeed(driveTrain, -2));

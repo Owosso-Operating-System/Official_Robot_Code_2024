@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
     //updates the limelight Table
     LimeLight.updateTable();
-    DriveTrain.updatePitch();
+    DriveTrain.updateYaw();
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -81,7 +81,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    DriveTrain.updatePitch();
+    DriveTrain.updateYaw();
   }
 
   @Override
