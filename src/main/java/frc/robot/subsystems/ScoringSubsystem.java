@@ -23,6 +23,8 @@ public class ScoringSubsystem extends SubsystemBase {
     //initialize the CAN motor
     scorerL = new CANSparkMax(9, MotorType.kBrushless);
     scorerR = new CANSparkMax(10, MotorType.kBrushless);
+
+    scorerL.setInverted(true);
   }
   @Override
   public void periodic() {
