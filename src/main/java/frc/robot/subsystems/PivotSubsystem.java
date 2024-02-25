@@ -20,7 +20,7 @@ public class PivotSubsystem extends SubsystemBase {
 
   public PivotSubsystem() {
     //initalize the CAN motor
-    pivot = new CANSparkMax(8, MotorType.kBrushless);
+    pivot = new CANSparkMax(7, MotorType.kBrushless);
   }
 
   @Override
