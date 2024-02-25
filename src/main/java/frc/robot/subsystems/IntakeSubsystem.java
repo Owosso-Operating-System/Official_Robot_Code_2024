@@ -17,12 +17,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class IntakeSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
   public static CANSparkMax intake;
-  public static CANSparkMax drop;
 
   public IntakeSubsystem() {
     //initalize the CAN motor
     intake = new CANSparkMax(6, MotorType.kBrushless);
-    drop = new CANSparkMax(7, MotorType.kBrushless);
     //inverts the motor
     intake.setInverted(true);
   }
