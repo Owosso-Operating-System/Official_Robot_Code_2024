@@ -68,21 +68,24 @@ public class RobotContainer {
     // set Default Command for climbSubsystem passing in the climbSubsystem and controller0
     climbSubsystem.setDefaultCommand(new Climb(climbSubsystem, controller0));
     // set Default Command for intakeSubsystem passing in the intakeSubsystem and controller0
-    intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller0));
+    intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller1));
     // set Default Command for scoringSubsystem passing in the scoringSubsystem and controller0
-    scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller0));
+    scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller1));
     // set Default Command for pivotSubsystem passing in the pivotSubsystem and the controller1
-    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller0));
+    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller1));
     // Configure the button bindings  
     configureButtonBindings();
   }
 
   private void configureButtonBindings() {
-    new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    //Controller 0
     new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain,controller0));
-    new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
-    new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
+
+    //Controller 1
+    new JoystickButton(controller1, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller1, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller1, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
+    new JoystickButton(controller1, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
   }
 
    /**Method: GetAutonomousCommand
