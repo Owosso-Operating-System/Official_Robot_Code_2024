@@ -50,8 +50,8 @@ public class Drive extends Command {
   @Override
   public void execute() {
     if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
-      driveTrain.mecDrive.driveCartesian(-controller.getRawAxis(1)*0.75, controller.getRawAxis(0)*0.75, controller.getRawAxis(4)*0.75);
-    }else{
+      driveTrain.mecDrive.driveCartesian(-controller.getRawAxis(0)*0.75, -controller.getRawAxis(1)*0.75, controller.getRawAxis(4)*0.75);
+    }else {
       driveTrain.mecDrive.driveCartesian(0, 0, 0);
     }
   }
