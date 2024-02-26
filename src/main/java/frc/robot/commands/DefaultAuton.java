@@ -41,7 +41,7 @@ public class DefaultAuton extends Command {
     //Runs isFinished
     isFinished();*/
     
-
+/*
     //Moves the robot left at half speed for 2 seconds
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2);
@@ -81,7 +81,7 @@ public class DefaultAuton extends Command {
     //Stops the robot
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     //Runs isFinished 
-    isFinished();
+    isFinished();*/
 
   }
 
