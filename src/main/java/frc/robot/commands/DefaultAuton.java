@@ -41,16 +41,18 @@ public class DefaultAuton extends Command {
     //Runs isFinished
     isFinished();*/
     
-/*
+
     //Moves the robot left at half speed for 2 seconds
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2);
     //Stops the robot and sets the scorer to full speed for .1 second
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
-    scoringSubsystem.scorer.set(1);
+    scoringSubsystem.scorerL.set(1);
+    scoringSubsystem.scorerR.set(1);
     Timer.delay(.1);
     //Stops the scorer and moves the robot back at 1/10 speed for .2 seconds
-    scoringSubsystem.scorer.set(0);
+    scoringSubsystem.scorerL.set(0);
+    scoringSubsystem.scorerR.set(0);
     driveTrain.mecDrive.driveCartesian(-.1, 0, 0);
     Timer.delay(.2);
     //Stops the robot moving back and rotates left for .3 seconds
@@ -72,16 +74,18 @@ public class DefaultAuton extends Command {
     Timer.delay(.2);
     //Stops the robot and sets the scorer to speed to 1 for .1 second
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
-    scoringSubsystem.scorer.set(1);
+    scoringSubsystem.scorerL.set(1);
+    scoringSubsystem.scorerR.set(1);
     Timer.delay(.1);
     //Stops the scorer and moves the robot left for 2.784 seconds
-    scoringSubsystem.scorer.set(0);
+    scoringSubsystem.scorerL.set(0);
+    scoringSubsystem.scorerR.set(0);
     driveTrain.mecDrive.driveCartesian(0, -.5, 0);
     Timer.delay(2.784);
     //Stops the robot
     driveTrain.mecDrive.driveCartesian(0, 0, 0);
     //Runs isFinished 
-    isFinished();*/
+    isFinished();
 
   }
 
