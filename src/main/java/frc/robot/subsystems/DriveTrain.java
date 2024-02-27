@@ -19,26 +19,26 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
 
-// create new CAN Motor objects
-private final CANSparkMax lF;
-private final CANSparkMax lB;
-private final CANSparkMax rF;
-private final CANSparkMax rB;
-// create new Mechanum Drive variable named mecDrive
-public final MecanumDrive mecDrive;
+  // create new CAN Motor objects
+  private final CANSparkMax lF;
+  private final CANSparkMax lB;
+  private final CANSparkMax rF;
+  private final CANSparkMax rB;
+  // create new Mechanum Drive variable named mecDrive
+  public final MecanumDrive mecDrive;
+  // creates a new Pigeon2 named gyro on canID 5
+  public final static Pigeon2 gyro = new Pigeon2(5);  
 
-public final static Pigeon2 gyro = new Pigeon2(5);  
-
-/**Method: DriveTrain
-   * Parameters: None
-   * Variables used: leftBack, leftFront, rightBack, rightFront, and mecDrive
-   * What it does: Assigns the CANSparkMax variables their output ports
-   *               Assigns the Mecanum variable its Spark outputs
-   *  */
+  /**Method: DriveTrain
+    * Parameters: None
+    * Variables used: leftBack, leftFront, rightBack, rightFront, and mecDrive
+    * What it does: Assigns the CANSparkMax variables their output ports
+    *               Assigns the Mecanum variable its Spark outputs
+    *  */
 
   public DriveTrain() {
 
- // initalize the CAN Motors
+    // initalize the CAN Motors
     lF = new CANSparkMax(3,MotorType.kBrushless);
     lB = new CANSparkMax(4,MotorType.kBrushless);
     rF = new CANSparkMax(1,MotorType.kBrushless);
@@ -46,7 +46,7 @@ public final static Pigeon2 gyro = new Pigeon2(5);
 
     
 
-    // invert left side Motor
+    // sets right side inverted, sets left side as not inverted
     lB.setInverted(false);
     lF.setInverted(false);
     rB.setInverted(true);
@@ -58,15 +58,10 @@ public final static Pigeon2 gyro = new Pigeon2(5);
     mecDrive = new MecanumDrive(lF, lB, rF, rB);
   }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
-
-  //Outputs the Pitch value onto the driver station
+  //Outputs the Yaw value onto the driver station
   //With a value between 0 and 360
-  public static void updatePitch(){
-    double value = gyro.getPitch().getValueAsDouble();
+  public static void updateYaw(){
+    double value = gyro.getYaw().getValueAsDouble();
      if(value > 360){
        value = value % 360;
      }
@@ -77,6 +72,6 @@ public final static Pigeon2 gyro = new Pigeon2(5);
        value = (value % 360) + 360;
      }
  
-     SmartDashboard.putNumber("Gyro Pitch", value);
+     SmartDashboard.putNumber("Gyro Yaw", value);
    }
 }

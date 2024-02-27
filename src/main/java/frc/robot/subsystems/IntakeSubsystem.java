@@ -15,18 +15,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    * What it does: Assigns the intake variables its output port
    *  */
 public class IntakeSubsystem extends SubsystemBase {
-  /** Creates a new IntakeSubsystem. */
-  public static CANSparkMax intake;
+  // create new CAN Motor object
+  public CANSparkMax intake;
 
   public IntakeSubsystem() {
     //initalize the CAN motor
     intake = new CANSparkMax(6, MotorType.kBrushless);
+
     //inverts the motor
     intake.setInverted(true);
-  }
-
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
   }
 }

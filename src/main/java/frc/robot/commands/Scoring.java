@@ -25,39 +25,29 @@ public class Scoring extends Command {
   public Scoring(ScoringSubsystem scoringSubsystem, XboxController controller) {
     this.scoringSubsystem = scoringSubsystem;
     this.controller = controller;
-    addRequirements(scoringSubsystem);
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(scoringSubsystem);
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
-
-  // Called every time the scheduler runs while the command is scheduled.
+  /**Method: Scoring
+  * Parameters: None
+  * Variables used: scoringSubsystems and controller
+  * What it does: Takes the controller outputs, passes the values to Scoring
+  *  */
   @Override
   public void execute() {
-    // While Right Bumper is held, the scorer speed is 1
     if(controller.getRightBumper() == true) {
+      // While Right Bumper is held, the scorer speed is 1
       scoringSubsystem.scorerL.set(1);
       scoringSubsystem.scorerR.set(1);
-      // While Left Bumper is held, the scorer speed is -1
     } else if(controller.getLeftBumper() == true) {
+      // While Left Bumper is held, the scorer speed is -1
       scoringSubsystem.scorerL.set(1);
       scoringSubsystem.scorerR.set(1);
-      // Otherwise, the scorer speed is set to 0
     } else {
+      // Otherwise, the scorer speed is set to 0
       scoringSubsystem.scorerL.set(0);
       scoringSubsystem.scorerR.set(0);
     }
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }

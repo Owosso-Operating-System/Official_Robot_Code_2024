@@ -15,16 +15,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    * What it does: Assigns the Pivot variables its output port
    *  */
 public class PivotSubsystem extends SubsystemBase {
-  /** Creates a new PivotSubsystem. */
+  // create new CAN Motor object
   public CANSparkMax pivot;
 
   public PivotSubsystem() {
     //initalize the CAN motor
     pivot = new CANSparkMax(7, MotorType.kBrushless);
-  }
-
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
   }
 }

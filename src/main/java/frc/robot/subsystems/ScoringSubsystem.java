@@ -15,19 +15,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    * What it does: Assigns the scorer variable its output port
    *  */
 public class ScoringSubsystem extends SubsystemBase {
-  public static CANSparkMax scorerL;
-  public static CANSparkMax scorerR;
+  // create new CAN Motor objects
+  public CANSparkMax scorerL;
+  public CANSparkMax scorerR;
 
-  /** Creates a new ScoringSubsystem. */
   public ScoringSubsystem() {
-    //initialize the CAN motor
+    //initialize the CAN motors
     scorerL = new CANSparkMax(9, MotorType.kBrushless);
     scorerR = new CANSparkMax(10, MotorType.kBrushless);
 
+    // inverts the left flywheel
     scorerL.setInverted(true);
-  }
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
   }
 }
