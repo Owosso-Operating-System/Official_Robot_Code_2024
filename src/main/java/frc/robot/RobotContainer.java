@@ -82,10 +82,10 @@ public class RobotContainer {
     new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain,controller0));
 
     //Controller 1
-    new JoystickButton(controller1, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller1, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller1, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
-    new JoystickButton(controller1, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
+    new JoystickButton(controller1, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    new JoystickButton(controller1, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    new JoystickButton(controller1, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
+    new JoystickButton(controller1, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
   }
 
    /**Method: GetAutonomousCommand
