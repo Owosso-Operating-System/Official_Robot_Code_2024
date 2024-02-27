@@ -23,30 +23,17 @@ public class Climb extends Command {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(climbSubsystem);
   }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
-
+  
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   //takes the input of the controller and uses it to move the lift arm up or down depending on the controller input 
   public void execute() {
     if (controller.getRawAxis(2) > 0.1){
-      ClimbSubsystem.climb.set(controller.getRawAxis(2));
+      climbSubsystem.climb.set(controller.getRawAxis(2));
     }else if(controller.getRawAxis(3) > 0.1){
-      ClimbSubsystem.climb.set(-controller.getRawAxis(3));
+      climbSubsystem.climb.set(-controller.getRawAxis(3));
     }else{
-      ClimbSubsystem.climb.set(0);
+      climbSubsystem.climb.set(0);
     }
-  }
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }

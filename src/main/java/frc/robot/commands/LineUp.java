@@ -4,8 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.LimeLight;
@@ -38,20 +36,10 @@ public class LineUp extends Command {
   public void execute() {
     //detects AprilTags from the limelight
     if(LimeLight.getX() > 1){
-      driveTrain.mecDrive.driveCartesian(0, -.2, 0);
+      driveTrain.mecDrive.driveCartesian(controller.getRawAxis(0), -.2, 0);
     }
     if(LimeLight.getX() < -1){
-      driveTrain.mecDrive.driveCartesian(0, .2, 0);
+      driveTrain.mecDrive.driveCartesian(controller.getRawAxis(0), .2, 0);
     }
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }
