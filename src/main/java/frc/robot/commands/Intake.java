@@ -40,10 +40,10 @@ public class Intake extends Command {
   public void execute() {
     if(controller.getAButton() == true){
       // While A is held, the intake speed is 1
-      intakeSubsystem.intake.set(1);
+      intakeSubsystem.intake.set(0.5);
     }else if (controller.getBButton() == true){
       // While B is held, the intake speed is -1
-      intakeSubsystem.intake.set(-1);
+      intakeSubsystem.intake.set(-0.5);
     }else{
       // Otherwise, intake is set to 0
       intakeSubsystem.intake.set(0);
