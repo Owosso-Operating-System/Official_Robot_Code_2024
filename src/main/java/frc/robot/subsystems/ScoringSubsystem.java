@@ -23,8 +23,5 @@ public class ScoringSubsystem extends SubsystemBase {
     //initialize the CAN motors
     scorerL = new CANSparkMax(9, MotorType.kBrushless);
     scorerR = new CANSparkMax(10, MotorType.kBrushless);
-
-    // inverts the left flywheel
-    scorerL.setInverted(true);
   }
 }
