@@ -38,12 +38,12 @@ public class Scoring extends Command {
   public void execute() {
     if(controller.getRightBumper() == true) {
       // While Right Bumper is held, the scorer speed is 1
-      scoringSubsystem.scorerL.set(1);
-      scoringSubsystem.scorerR.set(1);
+      scoringSubsystem.scorerL.set(0.75);
+      scoringSubsystem.scorerR.set(0.75);
     } else if(controller.getLeftBumper() == true) {
       // While Left Bumper is held, the scorer speed is -1
-      scoringSubsystem.scorerL.set(1);
-      scoringSubsystem.scorerR.set(1);
+      scoringSubsystem.scorerL.set(-0.75);
+      scoringSubsystem.scorerR.set(-0.75);
     } else {
       // Otherwise, the scorer speed is set to 0
       scoringSubsystem.scorerL.set(0);

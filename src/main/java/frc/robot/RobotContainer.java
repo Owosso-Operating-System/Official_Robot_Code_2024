@@ -104,6 +104,8 @@ public class RobotContainer {
       //cases go here
       case "Default":
         return new DefaultAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
+      case "PIDAuton":
+        return new DefaultAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
     }
     return null;
   }
