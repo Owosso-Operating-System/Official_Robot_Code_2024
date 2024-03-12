@@ -6,48 +6,48 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.PivotSubsystem;
+import frc.robot.subsystems.ConveyorBelt;
 
-public class Pivot extends Command {
-  /** Creates a new Pivot. */
-  // Creates new Pivot Object named Pivot
- public final PivotSubsystem pivotSubsystem;
+public class Conveyor extends Command {
+  /** Creates a new Belt. */
+  // Creates new Belt Object named Belt
+ public final ConveyorBelt conveyorBelt;
 
   // Creates new XboxController Object named controller
   public final XboxController controller;
 
-    /**Method: Pivot
-   * Parameters: PivotSubsystem and XboxController
-   * Variables used: PivotSubsystem and controller
-   * What it does: Assigns the parameter PivotSubsystem to Pivotsubsystem
+    /**Method: Belt
+   * Parameters: ConveyorBelt and XboxController
+   * Variables used: ConveyorBelt and controller
+   * What it does: Assigns the parameter ConveyorBelt to ConveyorBelt
    *               Assigns the parameter XboxController to controller
-   *               Uses addRequirements to tie PivotSubsystem to Pivot
+   *               Uses addRequirements to tie ConveyorBelt to Belt
    *  */
 
-  public Pivot(PivotSubsystem pivotSubsystem, XboxController controller) {
-    this.pivotSubsystem = pivotSubsystem;
+  public Conveyor(ConveyorBelt conveyorBelt, XboxController controller) {
+    this.conveyorBelt = conveyorBelt;
     this.controller = controller;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(pivotSubsystem);
+    addRequirements(conveyorBelt);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
 
-    /**Method:Pivot
+    /**Method:Belt
    * Parameters: None
-   * Variables used: PivotSubsystems and controller
-   * What it does: Takes the controller outputs, passes the values to Pivot
+   * Variables used: ConveyorBelts and controller
+   * What it does: Takes the controller outputs, passes the values to Belt
    *  */
   @Override
   public void execute() {
     //Adjust if Limit Switches are used
-    //Uses up and down of right stick on controller 2 to set speed of pivot arm
+    //Uses up and down of right stick on controller 2 to set speed of Belt arm
     if(controller.getRawAxis(5) > 0.2 || controller.getRawAxis(5) < -0.2){
-      pivotSubsystem.pivot.set(controller.getRawAxis(5)*.25);
+      conveyorBelt.belt.set(controller.getRawAxis(5)*.25);
     }else{
-      pivotSubsystem.pivot.set(0);
+      conveyorBelt.belt.set(0);
     }
   }
 

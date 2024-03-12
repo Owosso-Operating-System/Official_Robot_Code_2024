@@ -14,11 +14,11 @@ import frc.robot.commands.Drive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LineUp;
-import frc.robot.commands.Pivot; 
+import frc.robot.commands.Conveyor; 
 import frc.robot.commands.Scoring;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.PivotSubsystem;
+import frc.robot.subsystems.ConveyorBelt;
 import frc.robot.subsystems.ScoringSubsystem;
 
 /**
@@ -38,8 +38,8 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem;
   //Create new scoringSubsystem Object
   private final ScoringSubsystem scoringSubsystem;
-  //Create new PivotSubsystem Object
-  private final PivotSubsystem pivotSubsystem;
+  //Create new ConveyorBelt Object
+  private final ConveyorBelt conveyorBelt;
 
   private final XboxController controller0;
   private final XboxController controller1;
@@ -56,8 +56,8 @@ public class RobotContainer {
     intakeSubsystem = new IntakeSubsystem();
     // add in new scoringSubsystem
     scoringSubsystem = new ScoringSubsystem();
-    // add in new pivotSubsystem
-    pivotSubsystem = new PivotSubsystem();
+    // add in new conveyorBelt
+    conveyorBelt = new ConveyorBelt();
 
     // add in new controllers
     controller0 = new XboxController(0);
@@ -68,21 +68,21 @@ public class RobotContainer {
     // set Default Command for climbSubsystem passing in the climbSubsystem and controller0
     climbSubsystem.setDefaultCommand(new Climb(climbSubsystem, controller0));
     // set Default Command for intakeSubsystem passing in the intakeSubsystem and controller0
-    intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller0));
+    intakeSubsystem.setDefaultCommand(new Intake(intakeSubsystem, controller1));
     // set Default Command for scoringSubsystem passing in the scoringSubsystem and controller0
-    scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller0));
-    // set Default Command for pivotSubsystem passing in the pivotSubsystem and the controller1
-    pivotSubsystem.setDefaultCommand(new Pivot(pivotSubsystem, controller0));
+    scoringSubsystem.setDefaultCommand(new Scoring(scoringSubsystem, controller1));
+    // set Default Command for conveyorBelt passing in the conveyorBelt and the controller1
+    conveyorBelt.setDefaultCommand(new Conveyor(conveyorBelt, controller1));
     // Configure the button bindings  
     configureButtonBindings();
   }
 
   private void configureButtonBindings() {
-    new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller0));
-    new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller0));
+    new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller1));
     new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain,controller0));
-    new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
-    new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller0));
+    new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
+    new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
   }
 
    /**Method: GetAutonomousCommand
@@ -100,7 +100,7 @@ public class RobotContainer {
     switch(autoName){
       //cases go here
       case "Default":
-        return new DefaultAuton(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
+        return new DefaultAuton(driveTrain, intakeSubsystem, conveyorBelt, scoringSubsystem);
     }
     return null;
   }

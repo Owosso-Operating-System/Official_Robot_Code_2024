@@ -14,13 +14,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    * Variables used: Pivot
    * What it does: Assigns the Pivot variables its output port
    *  */
-public class PivotSubsystem extends SubsystemBase {
+public class ConveyorBelt extends SubsystemBase {
   /** Creates a new PivotSubsystem. */
-  public CANSparkMax pivot;
+  public CANSparkMax belt;
 
-  public PivotSubsystem() {
+  public ConveyorBelt() {
     //initalize the CAN motor
-    pivot = new CANSparkMax(7, MotorType.kBrushless);
+    belt = new CANSparkMax(7, MotorType.kBrushless);
   }
 
   @Override
