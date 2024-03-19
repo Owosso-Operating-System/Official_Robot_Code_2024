@@ -16,19 +16,19 @@ public class PIDAuton extends Command {
   //Makes a variable named driveTrain
   private DriveTrain driveTrain;
   private IntakeSubsystem intakeSubsystem;
-  private PivotSubsystem pivotSubsystem;
+  private ConveyorBelt conveyorBelt;
   private ScoringSubsystem scoringSubsystem;
   private Pigeon2 gyro;
 
-  public PIDAuton(DriveTrain driveTrain,IntakeSubsystem intakeSubsystem, PivotSubsystem pivotSubsystem, ScoringSubsystem scoringSubsystem, Pigeon2 gyro) {
+  public PIDAuton(DriveTrain driveTrain,IntakeSubsystem intakeSubsystem, ConveyorBelt conveyorBelt, ScoringSubsystem scoringSubsystem, Pigeon2 gyro) {
     this.driveTrain = driveTrain;
     this.intakeSubsystem = intakeSubsystem;
-    this.pivotSubsystem = pivotSubsystem;
+    this.conveyorBelt = conveyorBelt;
     this.scoringSubsystem = scoringSubsystem;
     this.gyro = gyro;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(driveTrain, intakeSubsystem, pivotSubsystem, scoringSubsystem);
+    addRequirements(driveTrain, intakeSubsystem, conveyorBelt, scoringSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -54,9 +54,9 @@ public class PIDAuton extends Command {
     while(gyro.getYaw().getValue() >= -90){
       driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -90));
     }
-    //Stops the robot moves the pivot down for .3 seconds
+    //Stops the robot moves the Belt down for .3 seconds
     driveTrain.mecDrive.driveCartesian(0, 0, PIDTurn.getSpeed(driveTrain, -90));
-    pivotSubsystem.pivot.set(.5);
+    conveyorBelt.belt.set(.5);
     Timer.delay(.3);
     //Sets the intake speed to -1 for .1 seconds to pick up a note
     intakeSubsystem.intake.set(1);
