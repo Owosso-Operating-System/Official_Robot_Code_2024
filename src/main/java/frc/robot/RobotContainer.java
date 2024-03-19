@@ -34,7 +34,7 @@ public class RobotContainer {
   private final DriveTrain driveTrain;
   //Create new ClimbSubsystem Object
   private final ClimbSubsystem climbSubsystem;
-  // Create new intakeSubsystem Object
+  //Create new intakeSubsystem Object
   private final IntakeSubsystem intakeSubsystem;
   //Create new scoringSubsystem Object
   private final ScoringSubsystem scoringSubsystem;
@@ -78,11 +78,14 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    new JoystickButton(controller0, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller1));
-    new JoystickButton(controller0, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    //Controller 0
     new JoystickButton(controller0, XboxController.Button.kX.value).whileTrue(new LineUp(driveTrain,controller0));
-    new JoystickButton(controller0, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
-    new JoystickButton(controller0, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
+
+    //Controller 1
+    new JoystickButton(controller1, XboxController.Button.kB.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    new JoystickButton(controller1, XboxController.Button.kA.value).whileTrue(new Intake(intakeSubsystem, controller1));
+    new JoystickButton(controller1, XboxController.Button.kRightBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
+    new JoystickButton(controller1, XboxController.Button.kLeftBumper.value).whileTrue(new Scoring(scoringSubsystem,controller1));
   }
 
    /**Method: GetAutonomousCommand
@@ -100,6 +103,8 @@ public class RobotContainer {
     switch(autoName){
       //cases go here
       case "Default":
+        return new DefaultAuton(driveTrain, intakeSubsystem, conveyorBelt, scoringSubsystem);
+      case "PIDAuton":
         return new DefaultAuton(driveTrain, intakeSubsystem, conveyorBelt, scoringSubsystem);
     }
     return null;

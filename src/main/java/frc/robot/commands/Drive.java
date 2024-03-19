@@ -36,33 +36,17 @@ public class Drive extends Command {
     addRequirements(this.driveTrain);
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
-
-  /**Method: Drive
+  /**Method: execute
    * Parameters: None
    * Variables used: driveTrain.mecDrive and controller
    * What it does: Takes the controller outputs, passes the values to mecDrive
    *  */
-
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     if(controller.getRawAxis(1) > .2 || controller.getRawAxis(0) > .2 || controller.getRawAxis(4) > .2 || controller.getRawAxis(0) < -.2 || controller.getRawAxis(1) < -.2 || controller.getRawAxis(4) < -.2){
-      driveTrain.mecDrive.driveCartesian(-controller.getRawAxis(0)*0.75, -controller.getRawAxis(1)*0.75, controller.getRawAxis(4)*0.75);
-    }else{
+      driveTrain.mecDrive.driveCartesian(-controller.getRawAxis(1)*0.75, controller.getRawAxis(0)*0.75, controller.getRawAxis(4)*0.75);
+    }else {
       driveTrain.mecDrive.driveCartesian(0, 0, 0);
     }
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }

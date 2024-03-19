@@ -14,12 +14,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
    *  */
 public class ClimbSubsystem extends SubsystemBase {
   // creates a new CAN Motor object
-  public static CANSparkMax climb;
+  public CANSparkMax climb;
 
 /**Method: ClimbSubsystem
    * Parameters: None
    * Variables used: climb
-   * What it does: Assigns the CANSparkMax variables their output ports
+   * What it does: Assigns the CANSparkMax variable its output port
    *  */
   public ClimbSubsystem() {
     // initalize the CAN Motors

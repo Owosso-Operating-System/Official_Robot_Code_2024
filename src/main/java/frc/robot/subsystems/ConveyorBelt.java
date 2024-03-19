@@ -22,9 +22,4 @@ public class ConveyorBelt extends SubsystemBase {
     //initalize the CAN motor
     belt = new CANSparkMax(7, MotorType.kBrushless);
   }
-
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
 }

@@ -43,8 +43,8 @@ public class PIDTurn {
        
         //Sets last error to the last recorded error value
         lastError = error;
-        //Sets error to set angle - the current gyro angle of pitch
-        error = kAngleSetpoint - DriveTrain.gyro.getPitch().getValueAsDouble();
+        //Sets error to set angle - the current gyro angle of yaw
+        error = kAngleSetpoint - DriveTrain.gyro.getYaw().getValueAsDouble();
         //Sets total error to equal all error add together
         totalError += error;
      

@@ -31,10 +31,6 @@ public class Intake extends Command {
     addRequirements(intakeSubsystem);
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
-
     /**Method: Intake
    * Parameters: None
    * Variables used: intakeSubsystem.intake and controller
@@ -42,23 +38,15 @@ public class Intake extends Command {
    *  */
   @Override
   public void execute() {
-    // While A is held, the intake speed is 1, otherwise it is 0
     if(controller.getAButton() == true){
-      intakeSubsystem.intake.set(1);
+      // While A is held, the intake speed is 1
+      intakeSubsystem.intake.set(0.5);
     }else if (controller.getBButton() == true){
-      intakeSubsystem.intake.set(-1);
+      // While B is held, the intake speed is -1
+      intakeSubsystem.intake.set(-0.5);
     }else{
+      // Otherwise, intake is set to 0
       intakeSubsystem.intake.set(0);
     }
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }
